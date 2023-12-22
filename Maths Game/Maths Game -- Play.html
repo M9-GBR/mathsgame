@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Maths Game &#10135;</title>
+        <link rel="stylesheet" href="assets/sourcefiles/Maths Game.css">
+        <link rel="icon" href="assets/bkgnd_icon/icons8-plus-50.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" >
+        <meta name="author" content="Arizona Games">
+        <meta name="description" content="Maths Game By AZA Games"> 
+        <!-- <script>navigator.serviceWorker.register("Maths Game/service_workers/pwabuilder-adv-sw.js")</script> -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta name="keywords" content="HTML">
+    </head>
+    <body style="background-image:url(assets/bkgnd_icon/MathBackground\.PNG)"; id="body">
+        <header >
+            <div>Maths Game</div>
+            <p id="back">Back</p>
+            <div id="openOptions">
+                <div class="bar b1" id="bar1"></div>
+                <div class="bar b2" id="bar2"></div>
+                <div class="bar b2" id="bar3"></div>
+            </div>
+        </header>
+
+        <div id="options" class="options">
+            <button id="htpOpen" onclick="htpOpen()">How To Play </button>
+            <hr>
+            <button id="statsOpen">Statistics </button>
+            <hr>
+            <button id="settingsOpen" onclick="settingsOpen()">Settings </button>
+            <hr>
+            <button onclick="achievementOpen()">Achievments</button>
+            <hr>
+            <button><a href="http://127.0.0.1:5500/Maths%20Game/READ.html" target="_blank">Terms And Conditions </a></button>
+        </div>
+
+        <div id="settings" class="settings">
+            <div id="dragbar" draggable="true"></div>
+            <button id="closeStns">✖</button>
+            <div>
+                <p>Sound</p>
+                Music:<br><input type="range" id="musicVolume" onchange="musicVol()" value="10"> <br>
+                SFX:<br><input type="range" id="sfxVolume" onchange="sfxVol()" value="10">
+            </div>
+                <p>Difficulty</p>
+                <div class="button-wrap">
+                    <button onclick="lvlChnge('easy')" id="easyLvl">Easy</button>
+                    <button onclick="lvlChnge()" id="mediumLvl">Medium</button> <!--default level-->
+                    <button onclick="lvlChnge('hard')" id="hardLvl">Hard</button>
+                </div>
+            <button id="_restore">Restore Default</button>
+        </div>
+
+        <div id="htp">
+            <button id="closehtp">✖</button>
+            <div class="howToPlay">
+                <h2>How To Play <span style=" font-size: 20px; color: rgb(20, 150, 20);">&#10067;</span></h2>
+                <p>
+                    When the game starts click on the right answer to score a point, clicking on the wrong answer will not give you any points.
+                    There is a timer located at the top of the game section and its speed varies on the difficulty level you are playing on. If the
+                    timer elapses you fail that game round. Note that divisions with decimals are rounded up to the nearest whole number to make the
+                    game look clean. Failing all set rounds will conclude the game. 
+                </p> 
+            </div>
+            <div class="htpdifficulty">
+                <h2>Difficulty</h2>
+                <p>
+                    There are 3 difficulties in this game: <strong>Easy</strong>, <strong>Medium</strong> and <strong>Hard</strong>. Each difficulty 
+                    affects the timer speed from 1.5 seconds (<strong>Hard</strong>) to 4.5 seconds (<strong>Easy</strong>). Each second determines the rate of change of the timer numbers
+                    ,that is in <strong>Easy</strong> mode it will take 1.5 seconds to count from 3 to 2 then to 1 making <strong>Easy</strong> mode 4.5 seconds to finish 1 round. 
+                </p>
+            </div>
+            <div class="Shortcuts">
+                <h2>Shortcuts</h2>
+                <p>
+                    There are various shortcuts in the game but the list below shows the most important for ease and accessibility, hovering on
+                    the listed items will show more info about them:
+                </p>
+                <ul>
+                    <li title="Only When game section is open"><em>Alt + 1/ 2/ 3</em> : Will select option 1/ 2/ 3 respectively.</li>
+                    <li><em>Esc</em> : Can be used to close some tabs.</li>
+                    <li><em>Alt + S</em> : Will open settings tab.</li>
+                    <li title="Makes a quick game of rounds '10'"><em>Alt + Q</em> : Will make a quick game.</li>
+                    <li title="Reduces both sfx and music volume"><em>Alt + V</em> : Will reduce game volume.</li>
+                    <li title="Increases both sfx and music volume"><em>Alt + Shift + V</em> : Will increase game volume.</li>
+                    <li><em>Alt + H</em> : Will open How To Play Tab.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="statistics">
+            <button id="closeStats">✖</button>
+            <h1>Statistics <span style="color: rgb(150, 150, 150); font-size: 23px;">&#128201;</span></h1>
+            <div class="stats">Total Games Played<span id="tgpstat"></span></div>
+            <div class="stats">Total Games Won<span id="tgwstat"></span></div>
+            <div class="stats">Total Games Failed<span id="tgfstat"></span></div>
+            <div class="stats">Play Time<span id="playtimestat"></span></div>
+            <div class="stats">Times Quit<span id="qtstat"></span></div>
+            <button id="resetstat" onclick="resetStat()">Reset</button><br>
+        </div>
+
+        <section id="fsec">
+            <p>Maths Game</p>
+            <button id="startButtn">Start Game</button>
+        </section>
+
+        <section id="setsec">
+            <p>Rounds:</p>
+            <input type="number" id="inputGames" min="1" max="100">
+            <p id="setsecWarning"></p>
+            <button id="toGsecBtn" onclick="toGsec()">Continue</button>
+        </section>
+        
+        <div id="gamefSec">
+            <p>Your Score:</p>
+            <p id="scoreShow"></p>
+            <div>
+                <p id="comment"></p>
+            </div>
+            <div>
+                <button onclick="gameContinue()">Continue</button>
+                <button onclick="gameReset()">Restart</button>
+            </div>
+        </div>
+        
+        <section id="gSec">
+            <button id="closeGsecBtn">✖</button>
+            <p id="score"></p>
+
+            <div id="top">
+                <h1>Choose The Right Answer</h1>
+                <p id="timer"></p>
+            </div>
+            <hr id="aboveHr">
+            <div>
+                <p id="expression"></p>
+            </div>
+            
+            <div id="butnSec">
+                <button id="festbut" onclick="festBut()"></button>
+                <button id="secbut" onclick="secBut()"></button>
+                <button id="tedbut" onclick="tedBut()"></button>
+            </div>
+            <hr id="belowHr">
+            <div id="divwarn"></div>
+        </section>
+
+        <div id="closeQues">
+            <p>Are You Sure You Want To Exit</p>
+            <button onclick="endClose()" id="endCloseBtn">No</button>
+            <button onclick="closeGsec()" id="closeContn">Yes</button>
+        </div>
+
+        <audio src="assets/sounds/button-124476.mp3" id="btnclick1"></audio>
+        <audio src="assets/sounds/mouseclick.mp3" id="btnclick2"></audio>
+        <audio src="assets/sounds/failure-drum-sound-effect-2-7184.mp3" id="failed"></audio>
+        <audio src="assets/sounds/crowd-cheer-ii-6263.mp3" id="winsound"></audio>
+        <audio src="assets/sounds/xbox_live_notification.mp3" id="winsound2"></audio>
+        <audio src="assets/sounds/fail-jingle-stereo-mix-88784.mp3" id="extremefail"></audio>
+        <audio src="assets/sounds/negative_beeps-6008.mp3" id="failed2"></audio>
+        <audio src="assets/sounds/mixkit-male-voice-cheer-2010.wav" id="littleWin"></audio>
+        <audio src="assets/sounds/child-says-yes-113117.mp3" id="yes"></audio>
+        <audio src="assets/sounds/mixkit-arcade-game-jump-coin-216.wav" id="keypress"></audio>
+        <audio src="assets/sounds/background-music-for-short-video-vlog-funny-dance-tropical-house-167732.mp3" id="backSnd"></audio>
+        <footer>
+            <div>
+                <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"><i class="fa-brands fa-facebook fa-2xl" title="Facebook"></i></a>
+                <a href="whattsapp"><i class="fa-brands fa-whatsapp fa-2xl" title="Whatsapp"></i></a>
+                <a href="mailto:arinzemegafu999@gmail.com"><i class="fa fa-envelope fa-2xl" aria-hidden="true" title="Mail"></i></a>              
+                <a href=""><i class="fa-brands fa-telegram fa-2xl" title="telegram"></i></a>
+            </div>
+        </footer>
+    </body>
+    <script src="assets/sourcefiles/Maths Game.js"></script>
+    <script src="assets/sourcefiles/cheats.js" type="text/babel"></script>
+    <script src="https://kit.fontawesome.com/22ef7ae500.js" crossorigin="anonymous"></script>
+</html>

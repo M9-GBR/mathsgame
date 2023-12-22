@@ -1,0 +1,678 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body{
+    background-size: cover;
+    background-color: rgb(40, 40, 40);
+    overflow-x: hidden;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+@media only screen and (max-width: 285px) {
+    header{
+        padding: 3px;
+        justify-content: space-around;
+    }
+}
+
+header div{
+    font-family: arial;
+    font-size: 30px;
+    text-decoration: rgb(100, 100, 0) underline;
+}
+@media only screen and (max-width: 285px) {
+    header div{
+        font-size: 20px;
+    }
+}
+
+header p{
+    font-size: 20px;
+    font-family: courier;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(100, 100, 100);
+    padding: 5px;
+    border-radius: 2px;
+    display: none;
+    box-shadow: 0px 0px 5px;
+    transition: ease-in-out 0.1s;
+}
+
+#openOptions{
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+}
+@media only screen and (min-width: 500px) {
+    #openOptions:hover{
+        transform: scale(1.4);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #openOptions:active{
+        transform: scale(1.4);
+    }
+}
+
+
+.bar{
+    background-color: rgb(200, 200, 200);
+    padding: 3px 30px 3px 0;
+    margin: 3px;
+}
+
+#fsec{
+    text-align: center;
+    margin: 80px auto;
+    font-family: arial;
+    transition: ease-in-out 0.5s;
+    padding: 110px;
+}
+@media only screen and (max-width: 327px) {
+    #fsec{
+        padding: 20px;
+    }
+}
+
+#fsec p{
+    margin: 50px;
+    font-size: 50px;
+    text-decoration: underline rgb(100, 100, 0);
+}
+@media only screen and (max-width: 434px) {
+    #fsec p{
+        font-size: 30px;
+        margin: 30px;
+    }
+}
+@media only screen and (max-width: 327px) {
+    #fsec p{
+        font-size: 30px;
+        margin: 20px;
+    }
+}
+
+#fsec button{
+    padding: 10px 60px 10px 60px;
+    font-family: courier;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(100, 100, 100);
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+}
+@media only screen and (max-width: 434px) {
+    #fsec button{
+        padding: 10px 30px 10px 30px;
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 500px) {
+    #fsec button:hover{
+        transform: scale(1.2);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #fsec button:active{
+        transform: scale(1.2);
+    }
+}
+
+#setsec{
+    display: none; 
+    text-align: center;
+    margin: 204px auto;
+    transition: ease-in-out 0.5s;
+    max-width: 550px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+}
+@media only screen and (max-width: 565px) {
+    #setsec{
+        max-width: 400px;
+    }
+}
+@media only screen and (max-width: 442px) {
+    #setsec{
+        max-width: 300px;
+    }
+}
+@media only screen and (max-width: 339px) {
+    #setsec{
+        max-width: 200px;
+    }
+}
+
+#setsec p{
+    margin: 10px;
+    font-size: 30px;
+    font-family: arial;
+}
+
+#setsec input{
+    padding: 10px 60px 10px 60px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#setsec #setsecWarning{
+    color: red;
+    font-size: 20px;
+}
+
+#setsec button{
+    padding: 5px 10px 5px 10px;
+    font-family: courier;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(100, 100, 100);
+    cursor: pointer;
+    transition: ease-in 0.2s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#gSec{
+    margin: 127px auto;
+    text-align: center; 
+    background-color: rgb(80, 80, 80);
+    max-width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px;
+    transition: 0.4s ease-in-out;
+    display: none;
+}
+@media only screen and (max-width: 336px) {
+    #gSec{
+        border: 2px solid rgb(100, 100, 0);
+    }
+    #statistics{
+        border: 2px solid rgb(100, 100, 0);
+    }
+}
+
+
+#aboveHr{
+    max-width: 200px;
+    margin: auto;
+    border: none;
+    background-color: rgb(100, 100, 100);
+    padding: 1px;
+}
+
+#closeGsecBtn{
+    color: red;
+    float: left;
+    padding: 3px;
+}
+
+#score{
+    font-size: 20px;
+    font-family: arial;
+    transition: ease-in-out 0.5s;
+}
+
+#gSec #top{
+    display: flex;
+    justify-content: space-between;
+}
+
+#gSec h1{
+    font-family: arial;
+    margin: 30px 0px 20px 0;
+    max-width: 200px;
+}
+
+#timer{
+    font-size: 30px;
+    font-family: courier;
+    margin: 25px 10px 2px 0px;
+    transition: ease-in-out 1s;
+}
+
+#expression{
+    font-size: 30px;
+    font-family: system-ui, arial;
+    margin: 10px;
+}
+
+#butnSec button{
+    padding: 10px 15px 10px 15px;
+    background: transparent;
+    border: 2px solid rgb(200, 200, 200);
+    margin: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+@media only screen and (min-width: 500px) {
+    #butnSec button:hover{
+        transform: scale(1.2);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #butnSec button:active{
+        transform: scale(1.5);
+    }
+}
+
+#belowHr{
+    max-width: 200px;
+    margin: 20px auto 5px auto;
+    padding: 1px;
+    background-color: rgb(100, 100, 100);
+    border: none;
+}
+
+#divwarn{
+    font-family: Segoe UI;
+    margin: 10px 0 5px 0;
+    font-size: 15px;
+    padding: 0;
+    background-color: transparent; 
+    border: none;
+}
+
+#gamefSec{
+    display: none;
+    z-index: 2000;
+    position: absolute;
+    width: 500px;
+    text-align: center;
+    background-color: rgb(80, 80, 80);
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(100, 100, 0);
+    font-family: arial;
+    box-shadow: 0px 0px 20px;
+}
+@media only screen and (max-width: 339px) {
+    #gamefSec{
+        padding: 0;
+    }
+}
+
+#gamefSec p{
+    font-size: 30px;
+    margin: 10px;
+}
+
+#gamefSec #scoreShow{
+    font-size: 100px;
+}
+
+#gamefSec div{
+    text-align: center;
+    margin: 30px;
+}
+
+#gamefSec div p{
+    font-size: 20px;
+}
+
+#gamefSec div button{
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor:  pointer;
+    border-radius: 3px;
+    background-color: rgb(150, 150, 150);
+    transition: ease-in-out 0.1s;
+}
+@media only screen and (min-width: 500px) {
+    #gamefSec div button:hover{
+        background-color: rgb(120, 120, 120);
+        transform: scale(1.1);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #gamefSec div button:active{
+        background-color: rgb(120, 120, 120);
+        transform: scale(1.1);
+    }
+}
+
+#options{
+    position: absolute;
+    width: 190px;
+    text-align: center;
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
+    padding: 2px;
+    transition: ease-in-out 0.2s;
+    z-index: 5000;
+    box-shadow: 0px 0px 10px;
+}
+
+.options{
+    display: none; 
+}
+
+#options button{
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+}
+
+#options button:hover{
+    transform: translateY(-4px);
+}
+
+#options hr{
+    margin: 0 20px 0 20px;
+    background-color: rgb(70, 70, 70);
+}
+
+#options button a{
+    text-decoration: none;
+    color: black;
+}
+
+#closeQues{
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    font-family: arial;
+    background-color: rgb(80, 80, 80);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid rgb(100, 100, 0);
+    box-shadow: 0px 0px 50px;
+}
+
+#closeQues p{
+    margin: 10px;
+    font-size: 20px;
+}
+
+#closeQues button{
+    padding: 3px 10px;
+    background-color: rgb(130, 130, 130);
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+    font-size: 15px;
+}
+@media only screen and (min-width: 500px) {
+    #closeQues button:hover{
+        transform: scale(1.2);
+        background-color: rgb(150, 150, 150);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #closeQues button:active{
+        transform: scale(1.2);
+        background-color: rgb(150, 150, 150);
+    }
+}
+
+#endClose{
+    margin-right: 10px;
+}
+
+#settings{
+    background-color: rgb(120, 120, 120);
+    position: fixed;
+    z-index: 4000;
+    padding: 10px;
+    text-align: center;
+    font-family: arial;
+    border-radius: 5px;
+    border: 2px solid rgb(100, 100, 0);
+    display: none;
+}
+@media only screen and (max-width: 500px) {
+    #settings{
+        padding: 5px;
+    }
+    #dragbar{
+        display: none;
+    }
+}
+
+#dragbar{
+    padding: 3px;
+    background-color: rgb(30, 30, 30);
+    max-width: 100px;
+    margin: auto;
+    border-radius: 2px;
+    cursor: move;
+}
+
+
+#settings p{
+    margin: 15px;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.button-wrap{
+    max-width: 600px;
+    padding: 5px;
+}
+
+#settings div button{
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    margin: 5px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}
+@media only screen and (max-width: 448px) {
+    #settings div button{
+        margin: 1px;
+        padding: 5px;
+    }
+}
+@media only screen and (min-width: 500px) {
+    #settings div button:hover{
+        transform: scale(1.2);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #settings div button:active{
+        transform: scale(1.2);
+    }
+}
+
+
+#settings input[type="range"]::-webkit-slider-runnable-track{
+    border-radius: 10px;
+    background-color: rgb(100, 100, 0);
+}
+
+#settings input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+}
+
+#_restore{
+    margin: 5px;
+    padding: 3px;
+    transition: 0.2s ease-in-out;
+    border: none;
+    border-radius: 2px;
+    font-family: arial;
+    cursor: pointer;
+}
+@media only screen and (min-width: 500px) {
+    #_restore:hover{
+        transform: scale(1.1);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #_restore:active{
+        transform: scale(1.1);
+    }
+}
+
+#closeStns{
+    padding: 1px;
+    color: red;
+    float: left;
+}
+
+#htp{
+    position: absolute;
+    max-width: 500px;
+    z-index: 3000;
+    background-color: rgb(150, 150, 150);
+    padding: 7px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(100, 100, 0);
+    display: none;
+    top: 45px;
+}
+
+#htp h2{
+    text-align: center;
+    font-family: arial;
+    margin: 5px;
+    text-decoration: 3px solid underline rgb(100, 100, 0);
+}
+
+#htp p{
+    font-family: tw cen mt;
+    font-size: 19px;
+}
+
+#htp ul{
+    margin: 10px;
+    list-style-type: none;
+}
+
+#htp li{
+    margin: 2px;
+    font-family: system-ui;
+}
+
+#closehtp{
+    color: red;
+    float: right;
+}
+
+#statistics{
+    background-color: rgb(70, 70, 70);
+    text-align: center;
+    max-width: 300px;
+    border-radius: 10px;
+    display: none;
+    transition: 0.4s ease-in-out;
+    margin: 148px auto;
+    box-shadow: 0px 0px 10px;
+}
+
+#statistics div{
+    padding: 10px;
+    font-family: helvetica;
+    display: flex;
+    justify-content: space-between;
+}
+
+#statistics div span{
+    font-family: system-ui;
+}
+
+#statistics h1{
+    font-family: Arial;
+}
+
+#resetstat{
+    margin: 10px;
+    border: none;
+    background-color: rgb(130, 130, 130);
+    padding: 5px 7px 5px 7px;
+    border-radius: 3px;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+#closeStats{
+    float: right;
+    margin: 5px;
+    padding: 1px 3px 1px 3px;
+    background-color: rgb(130, 130, 130);
+    border: none;
+    color: rgb(200, 40, 40);
+    border-radius: 2px;
+}
+@media only screen and (min-width: 500px) {
+    #statistics button:hover{
+        transform: scale(1.1);
+    }
+}
+@media only screen and (max-width: 500px) {
+    #statistics button:active{
+        transform: scale(1.1);
+    }
+}
+
+.section-down{
+    animation: down ease-in-out 0.5s;
+}
+@keyframes down{
+    50%{
+        transform: translatey(5px);
+    }
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px 30px 0px 0px;
+    margin: 0px 10px 0px 10px;
+}
+.fa-brands, .fa-envelope{
+    color: white;
+    margin: 5px;
+}
+.fa-facebook:hover{
+    color: rgb(70, 70, 150);
+}
+.fa-whatsapp:hover{
+    color: rgb(70, 150, 70);
+}
+.fa-envelope:hover{
+    color: rgb(150, 70, 70)
+}
+.fa-telegram:hover{
+    color:lightblue
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(20, 20, 20);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(50, 50, 50);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+::-webkit-scrollbar-thumb:active{
+    background-color: rgb(50, 50, 50);
+}
